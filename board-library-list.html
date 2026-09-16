@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="경남경영경제연구원 자료실">
+    <title>자료실 | 경남경영경제연구원</title>
+
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link href="common/css/law-board.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+
+    <style>
+        .library-badge {
+            color: #745892;
+            background: #f2ebf8;
+        }
+
+        .library-toolbar {
+            display: grid;
+            grid-template-columns: 1fr minmax(320px, 430px) 1fr;
+            align-items: center;
+            gap: 22px;
+        }
+
+        .library-toolbar .law-search {
+            grid-column: 2;
+            justify-self: center;
+            width: 100%;
+        }
+
+        .library-write-button {
+            display: none;
+            grid-column: 3;
+            align-items: center;
+            justify-content: center;
+            justify-self: end;
+            min-width: 88px;
+            min-height: 40px;
+            padding: 0 16px;
+            border-radius: 10px;
+            color: #fff;
+            background: #0870b6;
+            font-size: 14px;
+            font-weight: 800;
+            text-decoration: none;
+            box-shadow: 0 8px 20px rgba(8, 112, 182, .2);
+            transition: transform .2s, background .2s;
+        }
+
+        .library-write-button:hover {
+            color: #fff;
+            background: #075d98;
+            transform: translateY(-2px);
+        }
+
+        .admin-login-dialog {
+            width: min(400px, calc(100% - 32px));
+            padding: 28px;
+            border: 0;
+            border-radius: 18px;
+            box-shadow: 0 24px 70px rgba(18, 38, 55, .28);
+        }
+
+        .admin-login-dialog::backdrop {
+            background: rgba(16, 31, 43, .58);
+            backdrop-filter: blur(3px);
+        }
+
+        .admin-login-dialog h3 {
+            margin: 0 0 8px;
+            color: #163d52;
+            font-size: 22px;
+        }
+
+        .admin-login-dialog > p {
+            margin: 0 0 22px;
+            color: #667985;
+            font-size: 14px;
+        }
+
+        .admin-login-field {
+            display: grid;
+            gap: 7px;
+            margin-bottom: 14px;
+            color: #334d5c;
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        .admin-login-field input {
+            width: 100%;
+            height: 46px;
+            padding: 0 14px;
+            border: 1px solid #ccd7dd;
+            border-radius: 9px;
+            outline: none;
+        }
+
+        .admin-login-field input:focus {
+            border-color: #0870b6;
+            box-shadow: 0 0 0 3px rgba(8, 112, 182, .12);
+        }
+
+        .admin-login-error {
+            min-height: 20px;
+            margin: 2px 0 12px;
+            color: #d63638;
+            font-size: 13px;
+        }
+
+        .admin-login-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 8px;
+        }
+
+        .admin-login-actions button {
+            min-width: 76px;
+            height: 40px;
+            border: 0;
+            border-radius: 9px;
+            font-weight: 700;
+        }
+
+        .admin-login-cancel {
+            color: #52646f;
+            background: #edf1f3;
+        }
+
+        .admin-login-submit {
+            color: #fff;
+            background: #0870b6;
+        }
+
+        @media (max-width: 767px) {
+            .library-toolbar {
+                display: flex;
+                align-items: stretch;
+            }
+
+            .library-toolbar .law-search {
+                width: 100%;
+            }
+
+            .library-write-button {
+                align-self: flex-end;
+            }
+        }
+    </style>
+</head>
+<body class="law-page">
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-wrap">
+        <div id="header"></div>
+
+        <main id="content">
+            <section class="law-hero">
+                <p class="eyebrow">KMEI LIBRARY</p>
+                <h2>자료실</h2>
+                <p>연구와 실무에 필요한 주요 자료를 제공합니다.</p>
+            </section>
+
+            <div class="law-container">
+                <div class="law-content">
+                    <div class="law-heading">
+                        <p class="category">Resources</p>
+                        <h3>연구자료</h3>
+                    </div>
+
+                    <div class="law-toolbar library-toolbar">
+                        <p class="law-count">
+                            전체 <strong id="library-count">0</strong>건
+                        </p>
+
+                        <form id="library-search" class="law-search">
+                            <label class="visually-hidden" for="library-keyword">검색어</label>
+                            <input
+                                id="library-keyword"
+                                type="search"
+                                placeholder="자료명을 검색하세요"
+                            >
+                            <button type="submit">검색</button>
+                        </form>
+
+                        <a class="library-write-button" href="board-library-write.html">글쓰기</a>
+                    </div>
+
+                    <div class="law-table-wrap">
+                        <table class="law-table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">No</th>
+                                    <th scope="col">제목</th>
+                                    <th scope="col">등록일</th>
+                                </tr>
+                            </thead>
+                            <tbody id="library-list"></tbody>
+                        </table>
+                    </div>
+
+                    <nav aria-label="페이지 이동">
+                        <ul class="law-pagination">
+                            <li><a href="#" aria-label="이전">‹</a></li>
+                            <li><a class="active" href="#">1</a></li>
+                            <li><a href="#" aria-label="다음">›</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+
+    <dialog id="admin-login-dialog" class="admin-login-dialog">
+        <form id="admin-login-form">
+            <h3>관리자 확인</h3>
+            <p>글쓰기를 위해 관리자 ID와 비밀번호를 입력해 주세요.</p>
+            <label class="admin-login-field">
+                <span>ID</span>
+                <input id="admin-login-id" type="text" autocomplete="username" required>
+            </label>
+            <label class="admin-login-field">
+                <span>PW</span>
+                <input id="admin-login-password" type="password" autocomplete="current-password" required>
+            </label>
+            <p id="admin-login-error" class="admin-login-error" aria-live="polite"></p>
+            <div class="admin-login-actions">
+                <button class="admin-login-cancel" type="button">취소</button>
+                <button class="admin-login-submit" type="submit">확인</button>
+            </div>
+        </form>
+    </dialog>
+
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script src="common/js/library-board.js?v=20260811-11"></script>
+    <script>
+        (function () {
+            var savedFile = new URLSearchParams(location.search).get('saved');
+            if (!savedFile || !savedFile.toLowerCase().endsWith('.txt')) return;
+
+            fetch('board-library/' + encodeURIComponent(savedFile) + '?t=' + Date.now(), { cache: 'no-store' })
+                .then(function (response) {
+                    if (!response.ok) throw new Error();
+                    return response.json();
+                })
+                .then(function (data) {
+                    var target = document.getElementById('library-list');
+                    function placeSavedRow() {
+                        var links = target.querySelectorAll('a');
+                        for (var i = 0; i < links.length; i += 1) {
+                            if (links[i].href.indexOf(encodeURIComponent(savedFile)) > -1) return;
+                        }
+                        var row = document.createElement('tr');
+                        row.innerHTML = '<td>NEW</td><td class="title"><span class="law-badge library-badge">자료</span> <a></a></td><td></td>';
+                        row.querySelector('a').href = 'board-library-view.html?file=' + encodeURIComponent(savedFile);
+                        row.querySelector('a').textContent = data.title || savedFile.replace(/\.txt$/i, '');
+                        row.lastElementChild.textContent = data.date || '';
+                        target.prepend(row);
+                        document.getElementById('library-count').textContent = target.querySelectorAll('tr').length;
+                    }
+                    placeSavedRow();
+                    new MutationObserver(placeSavedRow).observe(target, { childList: true });
+                })
+                .catch(function () {});
+        }());
+
+        (function () {
+            var writeButton = document.querySelector('.library-write-button');
+            function updateWriteButton() {
+                var loggedIn = false;
+                try { loggedIn = localStorage.getItem('kmei-admin-login') === 'true'; }
+                catch (error) {}
+                writeButton.style.display = loggedIn ? 'inline-flex' : 'none';
+            }
+            updateWriteButton();
+            window.addEventListener('kmei-login-changed', updateWriteButton);
+            return;
+            var dialog = document.getElementById('admin-login-dialog');
+            var form = document.getElementById('admin-login-form');
+            var idInput = document.getElementById('admin-login-id');
+            var passwordInput = document.getElementById('admin-login-password');
+            var errorMessage = document.getElementById('admin-login-error');
+
+            writeButton.addEventListener('click', function (event) {
+                event.preventDefault();
+                form.reset();
+                errorMessage.textContent = '';
+                dialog.showModal();
+                window.setTimeout(function () { idInput.focus(); }, 0);
+            });
+
+            document.querySelector('.admin-login-cancel').addEventListener('click', function () {
+                dialog.close();
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                if (idInput.value === 'admin' && passwordInput.value === '1234') {
+                    location.href = 'board-library-write.html';
+                    return;
+                }
+                errorMessage.textContent = 'ID 또는 비밀번호가 올바르지 않습니다.';
+                passwordInput.value = '';
+                passwordInput.focus();
+            });
+        }());
+    </script>
+</body>
+</html>

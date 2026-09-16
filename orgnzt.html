@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="경남경영경제연구원 조직 및 연구진 안내">
+    <title>조직 및 연구진 | 경남경영경제연구원</title>
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+    <style>
+        .organization-page { color: #25282d; background: #fff; }
+        .organization-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 88px 20px 82px;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(125deg, #063b84 0%, #0861b4 58%, #28a5b4 100%);
+        }
+        .organization-hero::before,
+        .organization-hero::after {
+            position: absolute;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 50%;
+            content: "";
+        }
+        .organization-hero::before { width: 420px; height: 420px; right: -140px; top: -250px; }
+        .organization-hero::after { width: 260px; height: 260px; left: -90px; bottom: -170px; }
+        .organization-hero .eyebrow { position: relative; margin: 0 0 12px; font-weight: 700; letter-spacing: .12em; opacity: .75; }
+        .organization-hero h2 { position: relative; margin: 0; font-size: clamp(34px, 5vw, 58px); font-weight: 800; }
+        .organization-hero p:last-child { position: relative; margin: 18px 0 0; font-size: clamp(16px, 2vw, 20px); opacity: .9; }
+        .organization-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .organization-content { padding: 82px 0 120px; }
+        .section-heading { margin-bottom: 42px; text-align: center; }
+        .section-heading .category { margin: 0 0 10px; color: #0a65b7; font-weight: 800; }
+        .section-heading h3 { margin: 0; font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
+        .section-heading h3::after { display: block; width: 42px; height: 4px; margin: 18px auto 0; border-radius: 4px; background: #b1c91e; content: ""; }
+        .organization-banner { overflow: hidden; margin-bottom: 52px; border-radius: 24px; box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+        .organization-banner img { display: block; width: 100%; min-height: 220px; object-fit: cover; }
+        .org-chart {
+            position: relative;
+            padding: 54px 38px 44px;
+            overflow: hidden;
+            border: 1px solid #e0e8f0;
+            border-radius: 28px;
+            background:
+                radial-gradient(circle at 12% 8%, rgba(17,115,190,.10), transparent 30%),
+                linear-gradient(180deg, #f9fcff 0%, #fff 100%);
+            box-shadow: 0 22px 60px rgba(22,61,100,.10);
+        }
+        .org-chart::before { position: absolute; inset: 0; opacity: .32; background-image: radial-gradient(#b8c8d8 1px, transparent 1px); background-size: 22px 22px; content: ""; pointer-events: none; }
+        .org-level { position: relative; z-index: 1; }
+        .org-top { display: grid; grid-template-columns: 1fr 190px 1fr; align-items: center; gap: 34px; }
+        .org-top .org-node.primary { grid-column: 2; }
+        .org-top .org-node.advisor { grid-column: 3; justify-self: start; }
+        .org-node { position: relative; display: flex; align-items: center; justify-content: center; min-height: 68px; padding: 16px 22px; border: 1px solid #d8e3ee; border-radius: 16px; background: #fff; color: #23405d; font-size: 17px; font-weight: 800; box-shadow: 0 10px 24px rgba(32,71,109,.08); }
+        .org-node.primary { min-height: 82px; color: #fff; border: 0; border-radius: 20px; background: linear-gradient(135deg, #073f89, #0b72bd); font-size: 22px; box-shadow: 0 18px 32px rgba(9,75,175,.27); }
+        .org-node.primary::before { width: 34px; height: 34px; margin-right: 12px; border: 7px solid rgba(255,255,255,.35); border-radius: 50%; content: ""; }
+        .org-node.advisor { min-width: 170px; border-color: #b8d7e9; color: #08699f; background: #eff9ff; }
+        .org-governance { display: grid; grid-template-columns: repeat(3, minmax(140px, 190px)); justify-content: center; gap: 42px; margin-top: 82px; }
+        .org-governance::before { position: absolute; left: 50%; top: -82px; width: 1px; height: 60px; background: #a8bfd3; content: ""; }
+        .org-governance::after { position: absolute; left: calc(50% - 232px); right: calc(50% - 232px); top: -22px; height: 1px; background: #a8bfd3; content: ""; }
+        .org-governance .org-node::before { position: absolute; left: 50%; top: -23px; width: 1px; height: 22px; background: #a8bfd3; content: ""; }
+        .org-divisions { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; margin-top: 92px; }
+        .org-divisions::before { position: absolute; left: 50%; top: -92px; width: 1px; height: 54px; background: #a8bfd3; content: ""; }
+        .org-divisions::after { position: absolute; left: 10%; right: 10%; top: -38px; height: 1px; background: #a8bfd3; content: ""; }
+        .division-card { position: relative; min-height: 220px; padding: 30px 20px 26px; overflow: hidden; border: 1px solid #dde7f0; border-radius: 20px; background: #fff; text-align: center; box-shadow: 0 12px 28px rgba(28,65,102,.07); transition: transform .25s, box-shadow .25s, border-color .25s; }
+        .division-card::before { position: absolute; left: 50%; top: -39px; width: 1px; height: 38px; background: #a8bfd3; content: ""; }
+        .division-card:hover { transform: translateY(-7px); border-color: #9fc8e5; box-shadow: 0 20px 38px rgba(24,78,125,.14); }
+        .division-card .dept-number { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; margin-bottom: 18px; border-radius: 13px; color: #fff; background: linear-gradient(135deg, #0c74b7, #13a0aa); font-size: 13px; font-weight: 800; letter-spacing: .06em; }
+        .division-card h4 { margin: 0 0 13px; color: #153b62; font-size: 20px; }
+        .division-card p { margin: 0; color: #66717c; line-height: 1.65; word-break: keep-all; }
+        .org-legend { display: flex; align-items: center; justify-content: center; gap: 8px; margin: 28px 0 0; color: #687582; font-size: 14px; }
+        .org-legend::before { width: 8px; height: 8px; border-radius: 50%; background: #11a0aa; content: ""; }
+        .organization-page #footer { margin-top: 100px; }
+        @media (max-width: 991px) {
+            .org-chart { padding: 44px 24px 34px; }
+            .org-top { grid-template-columns: 1fr 170px 1fr; gap: 20px; }
+            .org-governance { gap: 20px; }
+            .org-divisions { grid-template-columns: repeat(2, 1fr); }
+            .org-divisions::before, .org-divisions::after, .division-card::before { display: none; }
+            .division-card:last-child { grid-column: 1 / -1; }
+        }
+        @media (max-width: 767px) {
+            .organization-hero { padding: 66px 20px 68px; }
+            .organization-content { padding: 62px 0 88px; }
+            .org-chart { padding: 32px 18px; }
+            .org-chart::before { opacity: .18; }
+            .org-top { display: flex; flex-direction: column; gap: 12px; }
+            .org-top .org-node { width: 100%; }
+            .org-top .org-node.advisor { min-width: 0; }
+            .org-governance { grid-template-columns: 1fr; gap: 12px; margin-top: 32px; }
+            .org-governance::before, .org-governance::after, .org-governance .org-node::before { display: none; }
+            .org-divisions { grid-template-columns: 1fr; gap: 14px; margin-top: 38px; }
+            .division-card:last-child { grid-column: auto; }
+            .division-card { min-height: 0; }
+        }
+    </style>
+</head>
+<body class="organization-page">
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+    <div class="layout-wrap">
+        <div id="header"></div>
+
+        <main id="content">
+            <section class="organization-hero" aria-labelledby="page-title">
+                <p class="eyebrow">KMEI ORGANIZATION</p>
+                <h2 id="page-title">조직 및 연구진</h2>
+                <p>분야별 전문성과 유기적인 협업을 바탕으로 신뢰할 수 있는 연구를 수행합니다.</p>
+            </section>
+
+            <div class="organization-container">
+                <div class="organization-content">
+                    <div class="section-heading">
+                        <p class="category">Organization</p>
+                        <h3>경남경영경제연구원 조직도</h3>
+                    </div>
+
+                    <div class="organization-banner">
+                        <img src="common/images/kmei-org-chart-original.jpg" alt="조직과 소통을 상징하는 경남경영경제연구원 이미지">
+                    </div>
+
+                    <section class="org-chart" aria-label="경남경영경제연구원 조직 구성">
+                        <div class="org-level org-top">
+                            <div class="org-node primary">이사장 / 원장</div>
+                            <div class="org-node advisor">상임고문</div>
+                        </div>
+                        <div class="org-level org-governance">
+                            <div class="org-node">운영위원</div>
+                            <div class="org-node">이사회</div>
+                            <div class="org-node">감사</div>
+                        </div>
+                        <div class="org-level org-divisions">
+                            <article class="division-card"><span class="dept-number">01</span><h4>원가계산실</h4><p>제조·공사원가, 민간위탁비용 및 계약금액 조정</p></article>
+                            <article class="division-card"><span class="dept-number">02</span><h4>학술연구부</h4><p>지역개발, 기본계획 수립용역 및 경영학술 연구</p></article>
+                            <article class="division-card"><span class="dept-number">03</span><h4>사무국</h4><p>계약, 재정, 인사 등 연구원 운영 지원</p></article>
+                            <article class="division-card"><span class="dept-number">04</span><h4>여론 / 마케팅</h4><p>시장조사, 만족도 조사, 여론조사 및 홍보</p></article>
+                            <article class="division-card"><span class="dept-number">05</span><h4>경영진단부</h4><p>기업 경영진단, 재무관리 및 기업평가</p></article>
+                        </div>
+                        <p class="org-legend">각 부서는 전문 연구진과 유기적으로 협업합니다.</p>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script>
+        $.ajax({ method: 'GET', url: 'header.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#header').append(html);
+        });
+        $.ajax({ method: 'GET', url: 'footer.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#footer').append(html);
+            new Swiper('.related-sites-swiper', {
+                slidesPerView: 5,
+                slidesPerGroup: 1,
+                loop: true,
+                speed: 700,
+                autoplay: { delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true },
+                observer: true,
+                observeParents: true
+            });
+        });
+    </script>
+</body>
+</html>

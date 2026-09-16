@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="경남경영경제연구원 연혁 및 비전 안내">
+    <title>연혁 및 비전 | 경남경영경제연구원</title>
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+    <style>
+        .history-page { color: #25282d; background: #fff; }
+        .history-hero { position: relative; overflow: hidden; padding: 88px 20px 82px; color: #fff; text-align: center; background: linear-gradient(125deg, #063b84 0%, #0861b4 58%, #28a5b4 100%); }
+        .history-hero::before, .history-hero::after { position: absolute; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; content: ""; }
+        .history-hero::before { width: 420px; height: 420px; right: -140px; top: -250px; }
+        .history-hero::after { width: 260px; height: 260px; left: -90px; bottom: -170px; }
+        .history-hero .eyebrow { position: relative; margin: 0 0 12px; font-weight: 700; letter-spacing: .12em; opacity: .75; }
+        .history-hero h2 { position: relative; margin: 0; font-size: clamp(34px, 5vw, 58px); font-weight: 800; }
+        .history-hero p:last-child { position: relative; margin: 18px 0 0; font-size: clamp(16px, 2vw, 20px); opacity: .9; }
+        .history-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .history-content { padding: 82px 0 120px; }
+        .section-heading { margin-bottom: 48px; text-align: center; }
+        .section-heading .category { margin: 0 0 10px; color: #0a65b7; font-weight: 800; }
+        .section-heading h3 { margin: 0; font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
+        .section-heading h3::after { display: block; width: 42px; height: 4px; margin: 18px auto 0; border-radius: 4px; background: #b1c91e; content: ""; }
+        .timeline-wrap { position: relative; max-width: 930px; margin: 0 auto; padding: 20px 0; }
+        .timeline-wrap::before { position: absolute; top: 0; bottom: 0; left: 50%; width: 2px; background: linear-gradient(#0b74bc, #a9c426); content: ""; transform: translateX(-50%); }
+        .timeline-item { position: relative; display: grid; grid-template-columns: 1fr 74px 1fr; align-items: center; margin-bottom: 25px; }
+        .timeline-item:last-child { margin-bottom: 0; }
+        .timeline-date { grid-column: 1; padding-right: 28px; color: #0a5fa7; font-size: 19px; font-weight: 800; text-align: right; }
+        .timeline-dot { position: relative; z-index: 1; grid-column: 2; justify-self: center; width: 16px; height: 16px; border: 4px solid #fff; border-radius: 50%; background: #0b75bc; box-shadow: 0 0 0 2px #8db9d7; }
+        .timeline-card { grid-column: 3; padding: 22px 25px; border: 1px solid #e0e9f1; border-radius: 16px; background: #fff; color: #4f5e6c; line-height: 1.65; box-shadow: 0 10px 28px rgba(27,67,104,.08); transition: transform .25s, box-shadow .25s; }
+        .timeline-card:hover { transform: translateX(6px); box-shadow: 0 16px 34px rgba(27,67,104,.14); }
+        .timeline-item:first-child .timeline-dot { background: #a9c426; box-shadow: 0 0 0 6px rgba(169,196,38,.18); }
+        .timeline-item:first-child .timeline-card { border-color: #cadb78; }
+        .vision-section { margin-top: 110px; padding: 70px 48px; overflow: hidden; border-radius: 28px; background: radial-gradient(circle at 100% 0, rgba(39,169,180,.25), transparent 34%), linear-gradient(135deg, #063b84, #0869ad); color: #fff; }
+        .vision-section .section-heading .category { color: #dbe98b; }
+        .vision-section .section-heading h3::after { background: #dbe98b; }
+        .vision-statement { max-width: 780px; margin: -18px auto 42px; font-size: clamp(20px, 2.6vw, 30px); font-weight: 700; line-height: 1.55; text-align: center; word-break: keep-all; }
+        .vision-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+        .vision-card { padding: 30px 25px; border: 1px solid rgba(255,255,255,.2); border-radius: 20px; background: rgba(255,255,255,.1); text-align: center; backdrop-filter: blur(8px); }
+        .vision-card .number { display: inline-flex; align-items: center; justify-content: center; width: 42px; height: 42px; margin-bottom: 17px; border-radius: 50%; background: #b1c91e; color: #173b5d; font-size: 13px; font-weight: 900; }
+        .vision-card h4 { margin: 0 0 12px; color: #fff; font-size: 22px; }
+        .vision-card p { margin: 0; color: rgba(255,255,255,.78); line-height: 1.65; word-break: keep-all; }
+        .history-page #footer { margin-top: 100px; }
+        @media (max-width: 767px) {
+            .history-hero { padding: 66px 20px 68px; }
+            .history-content { padding: 62px 0 88px; }
+            .timeline-wrap::before { left: 8px; }
+            .timeline-item { display: grid; grid-template-columns: 26px 1fr; gap: 0; margin-bottom: 22px; }
+            .timeline-date { grid-column: 2; padding: 0 0 8px; text-align: left; }
+            .timeline-dot { grid-column: 1; grid-row: 1 / 3; align-self: start; margin-top: 5px; }
+            .timeline-card { grid-column: 2; padding: 19px 20px; }
+            .timeline-card:hover { transform: none; }
+            .vision-section { margin-top: 75px; padding: 54px 20px; border-radius: 22px; }
+            .vision-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body class="history-page">
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+    <div class="layout-wrap">
+        <div id="header"></div>
+        <main id="content">
+            <section class="history-hero" aria-labelledby="page-title">
+                <p class="eyebrow">KMEI HISTORY &amp; VISION</p>
+                <h2 id="page-title">연혁 및 비전</h2>
+                <p>축적된 경험을 바탕으로 지역과 공공의 더 나은 내일을 연구합니다.</p>
+            </section>
+            <div class="history-container">
+                <div class="history-content">
+                    <section aria-labelledby="history-title">
+                        <div class="section-heading"><p class="category">Our History</p><h3 id="history-title">연구원이 걸어온 길</h3></div>
+                        <div class="timeline-wrap">
+                            <article class="timeline-item"><time class="timeline-date" datetime="2009-01">2009년 01월</time><span class="timeline-dot"></span><div class="timeline-card">지방계약원가협회 원가계산 기관등록</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2008-12">2008년 12월</time><span class="timeline-dot"></span><div class="timeline-card">ISO 9001:2000 취득(제1호)</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2008-10">2008년 10월</time><span class="timeline-dot"></span><div class="timeline-card">딜로이트 안진회계법인과 업무협약서 체결</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2008-05">2008년 05월</time><span class="timeline-dot"></span><div class="timeline-card">건설원가협회 개발비용 산정, 검토기관 등록</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2007-09">2007년 09월</time><span class="timeline-dot"></span><div class="timeline-card">감사원 전시시설분야 자문</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2006-05">2006년 05월</time><span class="timeline-dot"></span><div class="timeline-card">한국원가관리협회 원가검토기관 등록</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2005-09">2005년 09월</time><span class="timeline-dot"></span><div class="timeline-card">국립진주산업대학교와 업무 협약서 체결</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2005-08">2005년 08월</time><span class="timeline-dot"></span><div class="timeline-card">부산고등법원 감정인 선정</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2005-06">2005년 06월</time><span class="timeline-dot"></span><div class="timeline-card">한국국제회계학회 공동주최 학술세미나 개최</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2005-05">2005년 05월</time><span class="timeline-dot"></span><div class="timeline-card">한국원가관리협회 원가계산 기관 등록</div></article>
+                            <article class="timeline-item"><time class="timeline-date" datetime="2005-03">2005년 03월</time><span class="timeline-dot"></span><div class="timeline-card">사단법인 경남경영경제연구원 설립<br>경상남도 원가계산 기관 제1호 (2005년 3월 31일)</div></article>
+                        </div>
+                    </section>
+                    <section class="vision-section" aria-labelledby="vision-title">
+                        <div class="section-heading"><p class="category">Our Vision</p><h3 id="vision-title">연구원 비전</h3></div>
+                        <p class="vision-statement">전문 연구와 객관적인 분석으로 공공의 합리적인 의사결정과 지속 가능한 지역발전을 이끕니다.</p>
+                        <div class="vision-grid">
+                            <article class="vision-card"><span class="number">01</span><h4>공공성</h4><p>공익을 우선하며 신뢰할 수 있는 분석과 연구 결과를 제공합니다.</p></article>
+                            <article class="vision-card"><span class="number">02</span><h4>전문성</h4><p>과학적인 연구기법과 분야별 전문역량을 지속적으로 발전시킵니다.</p></article>
+                            <article class="vision-card"><span class="number">03</span><h4>지역발전</h4><p>지역경제와 국가경제의 균형 있고 지속 가능한 성장에 기여합니다.</p></article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script>
+        $.ajax({ method: 'GET', url: 'header.html', async: false, dataType: 'html' }).done(function (html) { $('#header').append(html); });
+        $.ajax({ method: 'GET', url: 'footer.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#footer').append(html);
+            new Swiper('.related-sites-swiper', { slidesPerView: 5, slidesPerGroup: 1, loop: true, speed: 700, autoplay: { delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true }, observer: true, observeParents: true });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="경남경영경제연구원 자료실 상세보기">
+        <title>자료실 상세 | 경남경영경제연구원</title>
+        <link href="common/css/common.css" rel="stylesheet">
+        <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+        <link href="common/css/main.css" rel="stylesheet">
+        <link href="common/css/style.css" rel="stylesheet">
+        <link href="common/css/law-board.css" rel="stylesheet">
+        <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+        <style>
+            .library-file-list{display:flex;flex-wrap:wrap;gap:10px 18px}
+            .library-file-list a{color:#0870b6;font-weight:700}
+            .library-file-list small{color:#7a8791;font-weight:400}
+            .library-manage-actions{display:none;align-items:center;justify-content:space-between;margin-bottom:14px}
+            .library-action-group{display:flex;gap:10px}
+            .library-manage-actions .law-button{min-width:78px;min-height:38px;padding:0 14px;border-radius:9px;font-size:14px}
+            .law-button.edit{border-color:#138a6b;color:#138a6b;background:#fff}
+            .law-button.delete{border-color:#d84b4b;color:#fff;background:#d84b4b}
+            @media(max-width:767px){
+                .library-manage-actions{gap:10px}
+                .library-action-group{justify-content:center}
+            }
+        </style>
+    </head>
+    <body class="law-page">
+        <div class="skip-nav">
+            <ul aria-label="주메뉴/본문 바로가기">
+                <li>
+                    <a href="#gnb">주메뉴 바로가기</a>
+                </li>
+                <li>
+                    <a href="#content">본문 바로가기</a>
+                </li>
+            </ul>
+        </div>
+        <div class="layout-wrap">
+            <div id="header">
+            </div>
+            <main id="content">
+                <section class="law-hero">
+                    <p class="eyebrow">KMEI LIBRARY</p>
+                    <h2>자료실</h2>
+                    <p>연구자료의 상세 내용과 첨부파일을 확인합니다.</p>
+                </section>
+                <div class="law-container">
+                    <div class="law-content">
+                        <div class="law-heading">
+                            <p class="category">Resources</p>
+                            <h3>자료 상세보기</h3>
+                        </div>
+                        <div class="library-manage-actions">
+                            <a id="library-edit-button" class="law-button edit" href="board-library-write.html">수정</a>
+                            <button id="library-delete-button" type="button" class="law-button delete">삭제</button>
+                        </div>
+                        <article id="library-view" class="law-view">
+                            <header class="law-view-head">
+                                <h3 id="view-title">
+                                </h3>
+                                <div class="law-meta">
+                                    <span>구분 자료실</span>
+                                    <span>등록일 <time id="view-date">
+                                    </time>
+                                </span>
+                            </div>
+                        </header>
+                        <div id="view-body" class="law-view-body">
+                        </div>
+                        <div class="law-file">
+                            <strong>첨부파일</strong>
+                            <div id="library-files" class="library-file-list">
+                            </div>
+                        </div>
+                    </article>
+                    <div class="law-actions">
+                        <button type="button" class="law-button" onclick="history.back()">이전 화면</button>
+                        <a class="law-button primary" href="board-library-list.html">목록으로</a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <div id="footer">
+        </div>
+        <div id="mask">
+        </div>
+    </div>
+    <script src="common/js/jquery-3.7.1.min.js">
+    </script>
+    <script src="common/js/bootstrap.bundle.min.js">
+    </script>
+    <script src="common/js/swiper-bundle.min.js">
+    </script>
+    <script src="common/js/script.js">
+    </script>
+    <script src="common/js/library-board.js?v=20260811-11">
+    </script>
+    <script>
+        (function () {
+            var fileName = new URLSearchParams(location.search).get('file');
+            var manageActions = document.querySelector('.library-manage-actions');
+            function updateManageActions() {
+                var loggedIn = false;
+                try { loggedIn = localStorage.getItem('kmei-admin-login') === 'true'; }
+                catch (error) {}
+                manageActions.style.display = loggedIn ? 'flex' : 'none';
+            }
+            updateManageActions();
+            window.addEventListener('kmei-login-changed', updateManageActions);
+            if (fileName) {
+                document.getElementById('library-edit-button').href =
+                    'board-library-write.html?mode=edit&file=' + encodeURIComponent(fileName);
+            }
+            function openLibraryDatabase() {
+                return new Promise(function (resolve, reject) {
+                    var request = indexedDB.open('kmei-library-storage', 1);
+                    request.onupgradeneeded = function () {
+                        if (!request.result.objectStoreNames.contains('handles')) {
+                            request.result.createObjectStore('handles');
+                        }
+                    };
+                    request.onsuccess = function () { resolve(request.result); };
+                    request.onerror = function () { reject(request.error); };
+                });
+            }
+
+            async function getLibraryRoot() {
+                var database = await openLibraryDatabase();
+                var handle = await new Promise(function (resolve, reject) {
+                    var transaction = database.transaction('handles', 'readonly');
+                    var request = transaction.objectStore('handles').get('kmei-root');
+                    request.onsuccess = function () { resolve(request.result || null); };
+                    request.onerror = function () { reject(request.error); };
+                });
+                database.close();
+                if (!handle) throw new Error('저장 폴더 권한이 없습니다. 글쓰기 화면에서 kmei 폴더를 먼저 선택해 주세요.');
+                var permission = await handle.queryPermission({ mode: 'readwrite' });
+                if (permission !== 'granted') permission = await handle.requestPermission({ mode: 'readwrite' });
+                if (permission !== 'granted') throw new Error('폴더 접근 권한이 필요합니다.');
+                return handle;
+            }
+
+            async function rewriteManifest(directory, deletedName) {
+                try {
+                    var handle = await directory.getFileHandle('file-list.txt');
+                    var file = await handle.getFile();
+                    var names = (await file.text()).split(/\r?\n/).filter(function (name) {
+                        return name.trim() && name.trim() !== deletedName;
+                    });
+                    var writable = await handle.createWritable();
+                    await writable.write(names.join('\n') + '\n');
+                    writable.close().catch(function () {});
+                } catch (error) {
+                    console.warn('목록 파일 갱신을 건너뜁니다.', error);
+                }
+            }
+
+            document.getElementById('library-delete-button').addEventListener('click', async function () {
+                if (!window.confirm('삭제하시겠습니까?')) return;
+                var deleteButton = this;
+                deleteButton.disabled = true;
+                deleteButton.textContent = '삭제 중';
+                try {
+                    if (!fileName) throw new Error('삭제할 게시물 파일명이 없습니다.');
+                    var response = await fetch('board-library/' + encodeURIComponent(fileName) + '?t=' + Date.now(), { cache: 'no-store' });
+                    if (!response.ok) throw new Error('삭제할 게시물을 불러오지 못했습니다.');
+                    var post = await response.json();
+                    var root = await getLibraryRoot();
+                    var boardDirectory = await root.getDirectoryHandle('board-library');
+                    var attachmentDirectory = await root.getDirectoryHandle('library-file');
+
+                    await Promise.all((post.files || []).map(function (file) {
+                        return attachmentDirectory.removeEntry(file.path).catch(function (error) {
+                            if (error.name !== 'NotFoundError') throw error;
+                        });
+                    }));
+                    await boardDirectory.removeEntry(fileName);
+                    rewriteManifest(boardDirectory, fileName);
+                    try {
+                        var recent = JSON.parse(localStorage.getItem('kmei-library-last-saved') || 'null');
+                        if (recent && recent.fileName === fileName) localStorage.removeItem('kmei-library-last-saved');
+                    } catch (ignore) {}
+                    window.location.replace('board-library-list.html?t=' + Date.now());
+                } catch (error) {
+                    window.alert(error.message || '삭제 중 오류가 발생했습니다.');
+                    deleteButton.disabled = false;
+                    deleteButton.textContent = '삭제';
+                }
+            });
+        }());
+    </script>
+</body>
+</html>

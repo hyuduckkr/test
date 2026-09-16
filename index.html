@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="경남경영경제연구원 소개, 연구원 개요 및 설립목적 안내">
+    <title>연구원 소개 | 경남경영경제연구원</title>
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+    <style>
+        .institute-page { background: #fff; color: #25282d; }
+        .institute-hero {
+            position: relative;
+            overflow: hidden;
+            padding: 88px 20px 82px;
+            color: #fff;
+            text-align: center;
+            background: linear-gradient(125deg, #063b84 0%, #0861b4 58%, #28a5b4 100%);
+        }
+        .institute-hero::before,
+        .institute-hero::after {
+            content: "";
+            position: absolute;
+            border: 1px solid rgba(255,255,255,.18);
+            border-radius: 50%;
+        }
+        .institute-hero::before { width: 420px; height: 420px; right: -140px; top: -250px; }
+        .institute-hero::after { width: 260px; height: 260px; left: -90px; bottom: -170px; }
+        .institute-hero .eyebrow { margin: 0 0 12px; font-weight: 700; letter-spacing: .12em; opacity: .75; }
+        .institute-hero h2 { position: relative; margin: 0; font-size: clamp(34px, 5vw, 58px); font-weight: 800; }
+        .institute-hero p:last-child { position: relative; margin: 18px 0 0; font-size: clamp(16px, 2vw, 20px); opacity: .9; }
+        .institute-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .institute-tabs {
+            position: relative;
+            z-index: 3;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            margin: -31px auto 0;
+            padding: 0;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #fff;
+            box-shadow: 0 15px 40px rgba(13,54,99,.14);
+        }
+        .institute-tabs li { min-width: 0; }
+        .institute-tabs button {
+            width: 100%;
+            min-height: 64px;
+            border: 0;
+            border-right: 1px solid #e4e8ee;
+            background: #fff;
+            color: #525a66;
+            font-size: clamp(15px, 2vw, 19px);
+            font-weight: 700;
+            transition: .25s;
+        }
+        .institute-tabs li:last-child button { border-right: 0; }
+        .institute-tabs button:hover,
+        .institute-tabs button:focus,
+        .institute-tabs button.active { background: #094baf; color: #fff; }
+        .institute-content { padding: 82px 0 120px; }
+        .institute-panel[hidden] { display: none; }
+        .panel-heading { margin-bottom: 42px; text-align: center; }
+        .panel-heading .category { margin: 0 0 10px; color: #0a65b7; font-weight: 800; }
+        .panel-heading h3 { margin: 0; font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
+        .panel-heading h3::after { display: block; width: 42px; height: 4px; margin: 18px auto 0; border-radius: 4px; background: #b1c91e; content: ""; }
+        .greeting-visual { overflow: hidden; margin-bottom: 42px; border-radius: 24px; box-shadow: 0 18px 45px rgba(0,0,0,.12); }
+        .greeting-visual img { display: block; width: 100%; min-height: 220px; object-fit: cover; }
+        .greeting-copy { max-width: 900px; margin: 0 auto; font-size: 18px; line-height: 1.9; word-break: keep-all; }
+        .greeting-copy .welcome { margin-bottom: 26px; color: #094baf; font-size: clamp(23px, 3vw, 32px); font-weight: 800; }
+        .greeting-copy p { margin: 0 0 20px; }
+        .greeting-copy .closing { margin-top: 36px; font-weight: 800; }
+        .overview-lead { max-width: 880px; margin: 0 auto 48px; color: #555e69; font-size: 19px; line-height: 1.8; text-align: center; word-break: keep-all; }
+        .overview-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-bottom: 48px; }
+        .fact-card { padding: 34px 28px; border: 1px solid #e0e6ec; border-radius: 18px; background: #fff; text-align: center; }
+        .fact-card .number { display: block; margin-bottom: 8px; color: #094baf; font-size: 28px; font-weight: 800; }
+        .fact-card p { margin: 0; color: #5c6570; line-height: 1.6; }
+        .service-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 18px; }
+        .service-card { position: relative; padding: 28px 28px 28px 68px; border-radius: 16px; background: #f3f7fb; }
+        .service-card::before { position: absolute; left: 28px; top: 31px; width: 24px; height: 24px; border: 7px solid #0a65b7; border-radius: 50%; content: ""; }
+        .service-card h4 { margin: 0 0 8px; font-size: 20px; }
+        .service-card p { margin: 0; color: #646d78; line-height: 1.65; }
+        .purpose-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; counter-reset: purpose; }
+        .purpose-card { counter-increment: purpose; min-height: 300px; padding: 40px 30px; border-radius: 22px; color: #fff; background: #094baf; }
+        .purpose-card:nth-child(2) { background: #087aa4; }
+        .purpose-card:nth-child(3) { background: #275d87; }
+        .purpose-card::before { display: block; margin-bottom: 48px; content: "0" counter(purpose); font-size: 18px; font-weight: 800; opacity: .6; }
+        .purpose-card h4 { margin: 0 0 16px; font-size: 26px; }
+        .purpose-card p { margin: 0; line-height: 1.75; opacity: .9; word-break: keep-all; }
+        .institute-page #footer { margin-top: 100px; }
+        @media (max-width: 767px) {
+            .institute-hero { padding: 66px 20px 68px; }
+            .institute-tabs { margin-top: -25px; }
+            .institute-tabs button { min-height: 54px; }
+            .institute-content { padding: 62px 0 88px; }
+            .overview-facts, .purpose-grid { grid-template-columns: 1fr; }
+            .service-grid { grid-template-columns: 1fr; }
+            .greeting-copy { font-size: 16px; }
+        }
+    </style>
+</head>
+<body class="institute-page">
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+    <div class="layout-wrap">
+        <div id="header"></div>
+
+        <main id="content">
+            <section class="institute-hero" aria-labelledby="page-title">
+                <p class="eyebrow">KMEI INSTITUTE</p>
+                <h2 id="page-title">연구원 소개</h2>
+                <p>전문성과 신뢰를 바탕으로 지역경제와 국가경제의 발전을 연구합니다.</p>
+            </section>
+
+            <div class="institute-container">
+                <ul class="institute-tabs" aria-label="연구원 소개 메뉴">
+                    <li><button type="button" class="active" data-panel="introduction" aria-selected="true">연구원 소개</button></li>
+                    <li><button type="button" data-panel="overview" aria-selected="false">연구원 개요</button></li>
+                    <li><button type="button" data-panel="purpose" aria-selected="false">설립목적</button></li>
+                </ul>
+
+                <div class="institute-content">
+                    <section id="introduction" class="institute-panel" tabindex="-1">
+                        <div class="panel-heading">
+                            <p class="category">인사말</p>
+                            <h3>경남경영경제연구원을 찾아주셔서 감사합니다</h3>
+                        </div>
+                        <div class="greeting-visual">
+                            <img src="common/images/kmei-introduction-original.jpg" alt="경남경영경제연구원 인사말 이미지">
+                        </div>
+                        <div class="greeting-copy">
+                            <p class="welcome">“저희 연구원 홈페이지를 찾아주셔서 감사드립니다.”</p>
+                            <p>사단법인 경남경영경제연구원은 2005년 3월 31일 설립된 이후 국가계약 제도와 관련 시스템을 연구해 왔습니다. 국가와 지방자치단체, 공공기관의 원가계산·검토 및 계약금액 조정 업무를 수행하며 지역경제와 국가경제의 발전에 기여하고 있습니다.</p>
+                            <p>지방행정·재정 분야의 연구, 타당성 조사와 기본계획 수립, 지역경제 동향 분석, 물가변동 및 개발비용 산정·검토, 법원 감정원가 산정 등 다양한 분야에서 전문 연구진과 함께 창의적인 연구를 이어가고 있습니다.</p>
+                            <p>앞으로도 과학적인 연구기법을 발전시키고 지방자치단체와 정부·공공기관에 신뢰할 수 있는 연구서비스를 제공하겠습니다.</p>
+                            <p class="closing">감사합니다.</p>
+                        </div>
+                    </section>
+
+                    <section id="overview" class="institute-panel" tabindex="-1" hidden>
+                        <div class="panel-heading">
+                            <p class="category">About KMEI</p>
+                            <h3>연구원 개요</h3>
+                        </div>
+                        <p class="overview-lead">경남경영경제연구원은 공공부문의 합리적인 의사결정을 지원하는 종합학술·원가계산 전문 연구기관입니다.</p>
+                        <div class="overview-facts">
+                            <article class="fact-card"><strong class="number">2005. 03. 31.</strong><p>연구원 설립</p></article>
+                            <article class="fact-card"><strong class="number">KMEI</strong><p>경남경영경제연구원</p></article>
+                            <article class="fact-card"><strong class="number">창원</strong><p>경상남도 기반 전문 연구기관</p></article>
+                        </div>
+                        <div class="service-grid">
+                            <article class="service-card"><h4>학술·정책연구</h4><p>지방행정과 재정, 지역경제 동향 및 공공정책을 조사·분석합니다.</p></article>
+                            <article class="service-card"><h4>타당성 검토·기본계획</h4><p>공공사업의 필요성과 실현 가능성을 분석하고 실행계획 수립을 지원합니다.</p></article>
+                            <article class="service-card"><h4>원가계산·원가검토</h4><p>공공계약과 사업에 필요한 적정 원가를 전문적으로 산정하고 검토합니다.</p></article>
+                            <article class="service-card"><h4>계약금액·개발비용 검토</h4><p>물가변동에 따른 계약금액 조정과 개발비용 산정·검토를 수행합니다.</p></article>
+                            <article class="service-card"><h4>법원 감정원가</h4><p>전문성과 객관성을 기반으로 법원 전문가감정 원가를 산정합니다.</p></article>
+                            <article class="service-card"><h4>조사·경영진단</h4><p>여론조사와 기업·경영진단을 통해 정책 및 경영 개선 자료를 제공합니다.</p></article>
+                        </div>
+                    </section>
+
+                    <section id="purpose" class="institute-panel" tabindex="-1" hidden>
+                        <div class="panel-heading">
+                            <p class="category">Our Purpose</p>
+                            <h3>설립목적</h3>
+                        </div>
+                        <p class="overview-lead">전문 연구와 객관적인 분석을 통해 공공기관의 합리적인 의사결정과 지역사회의 지속 가능한 발전에 기여합니다.</p>
+                        <div class="purpose-grid">
+                            <article class="purpose-card"><h4>공공성</h4><p>국가와 지방자치단체, 공공기관의 정책과 사업이 공익에 부합하도록 신뢰할 수 있는 분석 결과를 제공합니다.</p></article>
+                            <article class="purpose-card"><h4>전문성</h4><p>각 분야 전문가와 우수한 연구진을 바탕으로 과학적 연구기법과 객관적인 원가 산정 체계를 발전시킵니다.</p></article>
+                            <article class="purpose-card"><h4>지역발전</h4><p>지역경제와 행정·재정에 관한 연구를 통해 경남과 국가경제의 균형 있는 발전에 기여합니다.</p></article>
+                        </div>
+                    </section>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script>
+        function showInstitutePanel(panelName, updateHash) {
+            var validPanels = ['introduction', 'overview', 'purpose'];
+            if (validPanels.indexOf(panelName) === -1) panelName = 'introduction';
+
+            document.querySelectorAll('.institute-panel').forEach(function (panel) {
+                panel.hidden = panel.id !== panelName;
+            });
+            document.querySelectorAll('.institute-tabs button').forEach(function (button) {
+                var selected = button.dataset.panel === panelName;
+                button.classList.toggle('active', selected);
+                button.setAttribute('aria-selected', selected ? 'true' : 'false');
+            });
+            var titleMap = { introduction: '연구원 소개', overview: '연구원 개요', purpose: '설립목적' };
+            document.querySelector('#page-title').textContent = titleMap[panelName];
+            document.title = titleMap[panelName] + ' | 경남경영경제연구원';
+            if (updateHash) history.replaceState(null, '', '#' + panelName);
+        }
+
+        document.querySelectorAll('.institute-tabs button').forEach(function (button) {
+            button.addEventListener('click', function () {
+                showInstitutePanel(button.dataset.panel, true);
+                document.querySelector('.institute-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        $.ajax({ method: 'GET', url: 'header.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#header').append(html);
+        });
+        $.ajax({ method: 'GET', url: 'footer.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#footer').append(html);
+            new Swiper('.related-sites-swiper', {
+                slidesPerView: 5,
+                slidesPerGroup: 1,
+                loop: true,
+                speed: 700,
+                autoplay: { delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true },
+                observer: true,
+                observeParents: true
+            });
+        });
+
+        var headerPanelMap = { '연구원 소개': 'introduction', '연구원 개요': 'overview', '설립목적': 'purpose' };
+        document.addEventListener('click', function (event) {
+            var menuLink = event.target.closest('#header a.menuitem');
+            if (!menuLink || event.target.closest('.toggle-btn')) return;
+            var label = menuLink.querySelector(':scope > span:first-child');
+            var panelName = label && headerPanelMap[label.textContent.trim()];
+            if (!panelName) return;
+            event.preventDefault();
+            event.stopImmediatePropagation();
+            showInstitutePanel(panelName, true);
+            document.querySelector('.institute-content').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, true);
+
+        window.addEventListener('hashchange', function () {
+            showInstitutePanel(location.hash.slice(1), false);
+        });
+        showInstitutePanel(location.hash.slice(1) || 'introduction', false);
+    </script>
+</body>
+</html>

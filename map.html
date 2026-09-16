@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="경남경영경제연구원 찾아오시는 길">
+    <title>찾아오시는 길 | 경남경영경제연구원</title>
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+    <style>
+        .map-page { color: #25282d; background: #fff; }
+        .map-hero { position: relative; overflow: hidden; padding: 88px 20px 82px; color: #fff; text-align: center; background: linear-gradient(125deg, #063b84 0%, #0861b4 58%, #28a5b4 100%); }
+        .map-hero::before, .map-hero::after { position: absolute; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; content: ""; }
+        .map-hero::before { width: 420px; height: 420px; right: -140px; top: -250px; }
+        .map-hero::after { width: 260px; height: 260px; left: -90px; bottom: -170px; }
+        .map-hero .eyebrow { position: relative; margin: 0 0 12px; font-weight: 700; letter-spacing: .12em; opacity: .75; }
+        .map-hero h2 { position: relative; margin: 0; font-size: clamp(34px, 5vw, 58px); font-weight: 800; }
+        .map-hero p:last-child { position: relative; margin: 18px 0 0; font-size: clamp(16px, 2vw, 20px); opacity: .9; }
+        .map-container { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+        .map-content { padding: 82px 0 120px; }
+        .section-heading { margin-bottom: 42px; text-align: center; }
+        .section-heading .category { margin: 0 0 10px; color: #0a65b7; font-weight: 800; }
+        .section-heading h3 { margin: 0; font-size: clamp(30px, 4vw, 46px); font-weight: 800; }
+        .section-heading h3::after { display: block; width: 42px; height: 4px; margin: 18px auto 0; border-radius: 4px; background: #b1c91e; content: ""; }
+        .map-card { overflow: hidden; border: 1px solid #dce7ef; border-radius: 26px; background: #fff; box-shadow: 0 22px 55px rgba(25,65,103,.12); }
+        .map-frame { position: relative; height: 480px; background: #eaf1f5; }
+        .map-frame iframe { display: block; width: 100%; height: 100%; border: 0; }
+        .map-marker-label { position: absolute; top: 24px; left: 24px; z-index: 1; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 14px; background: rgba(255,255,255,.95); color: #153b62; font-weight: 800; box-shadow: 0 10px 28px rgba(16,51,81,.18); pointer-events: none; }
+        .map-marker-label::before { width: 12px; height: 12px; border: 4px solid #fff; border-radius: 50%; background: #0a70b7; box-shadow: 0 0 0 2px #0a70b7; content: ""; }
+        .location-panel { display: grid; grid-template-columns: 1.25fr .75fr; gap: 0; }
+        .address-area { padding: 40px 44px; }
+        .address-area .postcode { display: inline-block; margin-bottom: 20px; padding: 7px 13px; border-radius: 30px; background: #edf6fb; color: #0870b2; font-size: 14px; font-weight: 800; }
+        .address-list { margin: 0; }
+        .address-row { display: grid; grid-template-columns: 112px 1fr; padding: 14px 0; border-top: 1px solid #e8eef3; }
+        .address-row:first-child { border-top: 0; }
+        .address-row dt { color: #173e63; font-weight: 800; }
+        .address-row dd { margin: 0; color: #5f6b77; word-break: keep-all; }
+        .contact-area { display: flex; flex-direction: column; justify-content: center; padding: 40px; background: linear-gradient(145deg, #073e87, #0873b4); color: #fff; }
+        .contact-area h4 { margin: 0 0 20px; color: #fff; font-size: 22px; }
+        .contact-area a { display: block; margin: 7px 0; color: rgba(255,255,255,.9); text-decoration: none; }
+        .route-buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 25px; }
+        .route-button { display: inline-flex !important; align-items: center; justify-content: center; min-height: 46px; padding: 0 19px; border-radius: 12px; background: #b1c91e; color: #183c5c !important; font-weight: 800; transition: transform .2s, background .2s; }
+        .route-button.secondary { border: 1px solid rgba(255,255,255,.35); background: rgba(255,255,255,.1); color: #fff !important; }
+        .route-button:hover { transform: translateY(-2px); background: #c4da39; }
+        .map-note { margin: 24px 0 0; color: #6e7a85; font-size: 14px; text-align: center; }
+        .map-page #footer { margin-top: 100px; }
+        @media (max-width: 767px) {
+            .map-hero { padding: 66px 20px 68px; }
+            .map-content { padding: 62px 0 88px; }
+            .map-frame { height: 360px; }
+            .map-marker-label { top: 15px; left: 15px; right: 15px; }
+            .location-panel { grid-template-columns: 1fr; }
+            .address-area, .contact-area { padding: 30px 24px; }
+            .address-row { grid-template-columns: 1fr; gap: 7px; }
+        }
+    </style>
+</head>
+<body class="map-page">
+    <div class="skip-nav"><ul aria-label="주메뉴/본문 바로가기"><li><a href="#gnb">주메뉴 바로가기</a></li><li><a href="#content">본문 바로가기</a></li></ul></div>
+    <div class="layout-wrap">
+        <div id="header"></div>
+        <main id="content">
+            <section class="map-hero" aria-labelledby="page-title">
+                <p class="eyebrow">LOCATION</p>
+                <h2 id="page-title">찾아오시는 길</h2>
+                <p>경남경영경제연구원으로 오시는 길을 안내합니다.</p>
+            </section>
+            <div class="map-container">
+                <div class="map-content">
+                    <div class="section-heading"><p class="category">KMEI Location</p><h3>경남경영경제연구원</h3></div>
+                    <section class="map-card" aria-label="연구원 위치 및 연락처">
+                        <div class="map-frame">
+                            <div class="map-marker-label">경남경영경제연구원</div>
+                            <iframe title="경남경영경제연구원 위치 지도" loading="lazy" src="https://www.openstreetmap.org/export/embed.html?bbox=128.671631%2C35.221578%2C128.691631%2C35.237578&amp;layer=mapnik&amp;marker=35.229578%2C128.681631"></iframe>
+                        </div>
+                        <div class="location-panel">
+                            <div class="address-area">
+                                <span class="postcode">우편번호 51436</span>
+                                <dl class="address-list">
+                                    <div class="address-row"><dt>도로명주소</dt><dd>경상남도 창원시 의창구 용지로 161, 405호</dd></div>
+                                    <div class="address-row"><dt>지번주소</dt><dd>경상남도 창원시 의창구 용호동 73-32, 경남빌딩 405호</dd></div>
+                                </dl>
+                            </div>
+                            <div class="contact-area">
+                                <h4>연락처 안내</h4>
+                                <a href="tel:055-282-9022">대표전화 055-282-9022</a>
+                                <a href="tel:055-282-9023">FAX 055-282-9023</a>
+                                <a href="mailto:kmei05@nate.com">Email kmei05@nate.com</a>
+                                <div class="route-buttons">
+                                    <a class="route-button" href="https://map.naver.com/p/search/%EA%B2%BD%EB%82%A8%EA%B2%BD%EC%98%81%EA%B2%BD%EC%A0%9C%EC%97%B0%EA%B5%AC%EC%9B%90" target="_blank" rel="noopener">네이버지도에서 보기</a>
+                                    <a class="route-button secondary" href="https://www.openstreetmap.org/?mlat=35.229578&amp;mlon=128.681631#map=17/35.229578/128.681631" target="_blank" rel="noopener">큰 지도 보기</a>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <p class="map-note">지도 버튼을 누르면 새 창에서 위치와 경로를 자세히 확인할 수 있습니다.</p>
+                </div>
+            </div>
+        </main>
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script>
+        $.ajax({ method: 'GET', url: 'header.html', async: false, dataType: 'html' }).done(function (html) { $('#header').append(html); });
+        $.ajax({ method: 'GET', url: 'footer.html', async: false, dataType: 'html' }).done(function (html) {
+            $('#footer').append(html);
+            new Swiper('.related-sites-swiper', { slidesPerView: 5, slidesPerGroup: 1, loop: true, speed: 700, autoplay: { delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true }, observer: true, observeParents: true });
+        });
+    </script>
+</body>
+</html>

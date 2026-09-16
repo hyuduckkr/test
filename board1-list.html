@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
+        <meta name="description" content="경남경영경제연구원 게시판">
+        <title>게시판 | 경남경영경제연구원</title>
+        <link href="common/css/common.css" rel="stylesheet">
+        <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+        <link href="common/css/main.css" rel="stylesheet">
+        <link href="common/css/style.css" rel="stylesheet">
+        <link href="common/css/law-board.css" rel="stylesheet">
+        <link href="common/css/board-admin.css" rel="stylesheet">
+        <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+        <style>.notice-badge{color:#6d7912;background:#f3f7dc}</style>
+    </head>
+    <body class="law-page">
+        <div class="skip-nav">
+            <ul aria-label="주메뉴/본문 바로가기">
+                <li>
+                    <a href="#gnb">주메뉴 바로가기</a>
+                </li>
+                <li>
+                    <a href="#content">본문 바로가기</a>
+                </li>
+            </ul>
+        </div>
+        <div class="layout-wrap">
+            <div id="header">
+            </div>
+            <main id="content">
+                <section class="law-hero">
+                    <p class="eyebrow">KMEI NEWS</p>
+                    <h2>게시판</h2>
+                    <p>경남경영경제연구원의 새로운 소식을 전합니다.</p>
+                </section>
+                <div class="law-container">
+                    <div class="law-content">
+                        <div class="law-heading">
+                            <p class="category">Notice</p>
+                            <h3>공지사항</h3>
+                        </div>
+                        <div class="law-toolbar board-toolbar">
+                            <p class="law-count">전체 <strong id="notice-count">0</strong>건</p>
+                            <form id="notice-search" class="law-search">
+                                <label class="visually-hidden" for="notice-keyword">검색어</label>
+                                <input id="notice-keyword" type="search" placeholder="제목을 검색하세요">
+                                <button type="submit">검색</button>
+                            </form>
+                            <a class="protected-write-button" href="board1-write.html">글쓰기</a>
+                        </div>
+                        <div class="law-table-wrap">
+                            <table class="law-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">제목</th>
+                                        <th scope="col">등록일</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="notice-list">
+                                </tbody>
+                            </table>
+                        </div>
+                        <nav aria-label="페이지 이동">
+                            <ul class="law-pagination">
+                                <li>
+                                    <a href="#" aria-label="이전">‹</a>
+                                </li>
+                                <li>
+                                    <a class="active" href="#">1</a>
+                                </li>
+                                <li>
+                                    <a href="#" aria-label="다음">›</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </main>
+            <div id="footer">
+            </div>
+            <div id="mask">
+            </div>
+        </div>
+        <script src="common/js/jquery-3.7.1.min.js">
+        </script>
+        <script src="common/js/bootstrap.bundle.min.js">
+        </script>
+        <script src="common/js/swiper-bundle.min.js">
+        </script>
+        <script src="common/js/script.js">
+        </script>
+        <script src="common/js/notice-board.js?v=20260811-10">
+        </script>
+        <script src="common/js/board-admin.js?v=20260811-2"></script>
+    </body>
+</html>

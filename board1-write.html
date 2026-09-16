@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="경남경영경제연구원 게시판 글쓰기">
+    <title>게시판 글쓰기 | 경남경영경제연구원</title>
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link href="common/css/law-board.css" rel="stylesheet">
+    <link href="common/css/board-write.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+</head>
+<body class="law-page" data-board-dir="board1" data-list-page="board1-list.html" data-section-title="공지사항">
+    <div class="layout-wrap">
+        <div id="header"></div>
+        <main id="content">
+            <section class="law-hero"><p class="eyebrow">KMEI NEWS</p><h2>게시판 글쓰기</h2><p>경남경영경제연구원의 새로운 소식을 등록합니다.</p></section>
+            <div class="law-container"><div class="law-content">
+                <div class="law-heading"><p class="category">Notice</p><h3>게시물 작성</h3></div>
+                <form id="board-write-form" class="write-card">
+                    <div class="write-row"><label class="write-label" for="write-title">제목</label><input id="write-title" type="text" required></div>
+                    <div class="write-row"><label class="write-label" for="write-date">등록일</label><input id="write-date" type="date" required></div>
+                    <div class="write-row"><label class="write-label" for="write-content">내용</label><textarea id="write-content" required></textarea></div>
+                    <div class="write-row"><label class="write-label" for="write-file">첨부파일</label><div><input id="write-file" type="file" multiple><p class="write-help">필요한 문서 파일을 여러 개 첨부할 수 있습니다.</p></div></div>
+                    <div class="write-actions"><p class="write-help">최초 저장 시 현재 사이트의 kmei 폴더를 선택해 주세요.</p><a class="write-button" href="board1-list.html">취소</a><button id="board-save-button" class="write-button primary" type="submit">저장</button></div>
+                </form>
+            </div></div>
+        </main>
+        <div id="footer"></div><div id="mask"></div>
+    </div>
+    <script src="common/js/jquery-3.7.1.min.js"></script><script src="common/js/bootstrap.bundle.min.js"></script><script src="common/js/swiper-bundle.min.js"></script><script src="common/js/script.js"></script>
+    <script>
+        $.ajax({ method: 'GET', url: 'header.html', async: false, dataType: 'html' })
+            .done(function (html) { $('#header').append(html); });
+        $.ajax({ method: 'GET', url: 'footer.html', async: false, dataType: 'html' })
+            .done(function (html) {
+                $('#footer').append(html);
+                new Swiper('.related-sites-swiper', {
+                    slidesPerView: 5,
+                    slidesPerGroup: 1,
+                    loop: true,
+                    speed: 700,
+                    autoplay: { delay: 2500, disableOnInteraction: false, pauseOnMouseEnter: true },
+                    observer: true,
+                    observeParents: true,
+                    breakpoints: {
+                        0: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        1100: { slidesPerView: 5 }
+                    }
+                });
+            });
+    </script>
+    <script src="common/js/board-write.js?v=20260811-12"></script>
+</body>
+</html>

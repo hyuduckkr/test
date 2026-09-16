@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="경남경영경제연구원 자료실 글쓰기">
+    <title>자료실 글쓰기 | 경남경영경제연구원</title>
+
+    <link href="common/css/common.css" rel="stylesheet">
+    <link href="common/css/swiper-bundle.min.css" rel="stylesheet">
+    <link href="common/css/main.css" rel="stylesheet">
+    <link href="common/css/style.css" rel="stylesheet">
+    <link href="common/css/law-board.css" rel="stylesheet">
+    <link rel="shortcut icon" href="common/images/kmei-favicon-original.ico">
+
+    <style>
+        .library-write-form {
+            overflow: hidden;
+            border: 1px solid #dfe8ef;
+            border-radius: 24px;
+            background: #fff;
+            box-shadow: 0 18px 48px rgba(26, 68, 104, .1);
+        }
+
+        .write-guide {
+            margin: 0;
+            padding: 22px 30px;
+            color: #587080;
+            background: #f2f8fb;
+            line-height: 1.6;
+        }
+
+        .write-fields {
+            padding: 18px 38px 40px;
+        }
+
+        .write-row {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            align-items: start;
+            gap: 24px;
+            padding: 22px 0;
+            border-bottom: 1px solid #e8eef2;
+        }
+
+        .write-row:last-child {
+            border-bottom: 0;
+        }
+
+        .write-row > label,
+        .write-label {
+            padding-top: 12px;
+            color: #173e63;
+            font-weight: 800;
+        }
+
+        .required::after {
+            margin-left: 5px;
+            color: #d84c4c;
+            content: "*";
+        }
+
+        .write-control {
+            width: 100%;
+            min-height: 48px;
+            padding: 11px 14px;
+            border: 1px solid #d5e0e7;
+            border-radius: 11px;
+            color: #374957;
+            background: #fff;
+            outline: none;
+        }
+
+        .write-control:focus {
+            border-color: #0870b6;
+            box-shadow: 0 0 0 3px rgba(8, 112, 182, .12);
+        }
+
+        textarea.write-control {
+            min-height: 280px;
+            resize: vertical;
+            line-height: 1.7;
+        }
+
+        .file-upload-box {
+            padding: 25px;
+            border: 1px dashed #afc8d7;
+            border-radius: 15px;
+            background: #f8fbfc;
+        }
+
+        .file-upload-box input {
+            display: block;
+            width: 100%;
+        }
+
+        .file-help {
+            margin: 12px 0 0;
+            color: #76838d;
+            font-size: 14px;
+        }
+
+        .write-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .write-button {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-width: 120px;
+            min-height: 50px;
+            padding: 0 22px;
+            border: 1px solid #d5e0e7;
+            border-radius: 12px;
+            color: #52626e;
+            background: #fff;
+            font-weight: 800;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .write-button.primary {
+            border-color: #0870b6;
+            color: #fff;
+            background: #0870b6;
+        }
+
+        @media (max-width: 767px) {
+            .write-fields {
+                padding: 10px 22px 30px;
+            }
+
+            .write-row {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+
+            .write-row > label,
+            .write-label {
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+<body class="law-page">
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+
+    <div class="layout-wrap">
+        <div id="header"></div>
+
+        <main id="content">
+            <section class="law-hero">
+                <p class="eyebrow">KMEI LIBRARY</p>
+                <h2>자료실 글쓰기</h2>
+                <p>연구와 실무에 필요한 자료를 등록합니다.</p>
+            </section>
+
+            <div class="law-container">
+                <div class="law-content">
+                    <div class="law-heading">
+                        <p class="category">Write Resource</p>
+                        <h3>자료 등록</h3>
+                    </div>
+
+                    <form id="library-write-form" class="library-write-form">
+                        <p class="write-guide">
+                            필수 항목을 입력하고 자료와 관련된 첨부파일을 등록해 주세요.
+                        </p>
+
+                        <div class="write-fields">
+                            <div class="write-row">
+                                <label class="required" for="write-title">제목</label>
+                                <input
+                                    id="write-title"
+                                    class="write-control"
+                                    type="text"
+                                    maxlength="150"
+                                    placeholder="자료 제목을 입력하세요"
+                                    required
+                                >
+                            </div>
+
+                            <div class="write-row">
+                                <label class="required" for="write-date">등록일</label>
+                                <input
+                                    id="write-date"
+                                    class="write-control"
+                                    type="date"
+                                    required
+                                >
+                            </div>
+
+                            <div class="write-row">
+                                <label class="required" for="write-content">내용</label>
+                                <textarea
+                                    id="write-content"
+                                    class="write-control"
+                                    placeholder="자료에 대한 설명을 입력하세요"
+                                    required
+                                ></textarea>
+                            </div>
+
+                            <div class="write-row">
+                                <span class="write-label">첨부파일</span>
+                                <div class="file-upload-box">
+                                    <label class="visually-hidden" for="write-file">첨부파일 선택</label>
+                                    <input
+                                        id="write-file"
+                                        type="file"
+                                        accept=".hwp,.hwpx,.pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx,.zip"
+                                        multiple
+                                    >
+                                    <p class="file-help">
+                                        HWP, HWPX, PDF, Office 문서와 ZIP 파일을 등록할 수 있습니다.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <div class="write-actions">
+                        <p class="file-help" style="margin: 0 auto 12px; width: 100%; text-align: center;">
+                            최초 저장 시에만 <strong>kmei 폴더</strong>를 선택하면 이후에는 자동으로 저장됩니다.
+                        </p>
+                        <a class="write-button" href="board-library-list.html">취소</a>
+                        <button
+                            id="library-save-button"
+                            class="write-button primary"
+                            type="submit"
+                            form="library-write-form"
+                        >
+                            저장
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div id="footer"></div>
+        <div id="mask"></div>
+    </div>
+
+    <script src="common/js/jquery-3.7.1.min.js"></script>
+    <script src="common/js/bootstrap.bundle.min.js"></script>
+    <script src="common/js/swiper-bundle.min.js"></script>
+    <script src="common/js/script.js"></script>
+    <script>
+        $.ajax({
+            method: 'GET',
+            url: 'header.html',
+            async: false,
+            dataType: 'html'
+        }).done(function (html) {
+            $('#header').append(html);
+        });
+
+        $.ajax({
+            method: 'GET',
+            url: 'footer.html',
+            async: false,
+            dataType: 'html'
+        }).done(function (html) {
+            $('#footer').append(html);
+            new Swiper('.related-sites-swiper', {
+                slidesPerView: 5,
+                slidesPerGroup: 1,
+                loop: true,
+                speed: 700,
+                autoplay: {
+                    delay: 2500,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true
+                },
+                observer: true,
+                observeParents: true
+            });
+        });
+
+        document.getElementById('write-date').value = new Date().toISOString().slice(0, 10);
+        var writeParameters = new URLSearchParams(location.search);
+        var editingFileName = writeParameters.get('mode') === 'edit' ? writeParameters.get('file') : '';
+        var existingFiles = [];
+        var originalRecordId = 0;
+
+        if (editingFileName) {
+            fetch('board-library/' + encodeURIComponent(editingFileName) + '?t=' + Date.now(), { cache: 'no-store' })
+                .then(function (response) {
+                    if (!response.ok) throw new Error('수정할 자료를 찾을 수 없습니다.');
+                    return response.json();
+                })
+                .then(function (data) {
+                    document.title = '자료실 수정 | 경남경영경제연구원';
+                    document.querySelector('.law-heading h3').textContent = '자료 수정';
+                    document.getElementById('write-title').value = data.title || editingFileName.replace(/\.txt$/i, '');
+                    document.getElementById('write-date').value = data.date || new Date().toISOString().slice(0, 10);
+                    document.getElementById('write-content').value = (data.content || []).map(function (section) {
+                        return section.text || '';
+                    }).join('\n\n');
+                    existingFiles = Array.isArray(data.files) ? data.files.slice() : [];
+                    originalRecordId = Number(data.id) || 0;
+                    if (existingFiles.length) {
+                        document.querySelector('.file-upload-box .file-help').textContent =
+                            '기존 첨부파일: ' + existingFiles.map(function (file) { return file.name; }).join(', ') +
+                            ' · 새 파일을 추가로 선택할 수 있습니다.';
+                    }
+                    document.getElementById('library-save-button').textContent = '수정 저장';
+                })
+                .catch(function (error) {
+                    window.alert(error.message);
+                    window.location.href = 'board-library-list.html';
+                });
+        }
+
+        function safeFileName(value, fallback) {
+            var cleaned = String(value || '')
+                .replace(/[<>:"/\\|?*\u0000-\u001f]/g, '')
+                .replace(/[. ]+$/g, '')
+                .trim();
+            return cleaned || fallback;
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes < 1024) return bytes + ' Bytes';
+            if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' KB';
+            return (bytes / 1024 / 1024).toFixed(1) + ' MB';
+        }
+
+        async function writeToFile(directory, fileName, data) {
+            var fileHandle = await directory.getFileHandle(fileName, { create: true });
+            var writable = await fileHandle.createWritable();
+            await writable.write(data);
+            writable.close().catch(function (error) {
+                console.warn('파일 닫기 완료 신호를 기다리지 않습니다.', error);
+            });
+        }
+
+        function showLibraryCompletionPopup() {
+            return new Promise(function (resolve) {
+                var overlay = document.createElement('div');
+                overlay.style.cssText = 'position:fixed;inset:0;z-index:100000;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(16,31,43,.58)';
+                overlay.innerHTML = '<div style="width:min(360px,100%);padding:32px 26px;text-align:center;border-radius:18px;background:#fff;box-shadow:0 24px 70px rgba(0,0,0,.28)"><h3 style="margin:0 0 12px;color:#163d52;font-size:22px">작성 완료</h3><p style="margin:0 0 24px;color:#526773">작성이 완료 되었습니다.</p><button type="button" style="min-width:90px;height:42px;border:0;border-radius:9px;color:#fff;background:#0870b6;font-weight:800">확인</button></div>';
+                document.body.appendChild(overlay);
+                var button = overlay.querySelector('button');
+                button.addEventListener('click', function () { overlay.remove(); resolve(); });
+                button.focus();
+            });
+        }
+
+        async function fileExists(directory, fileName) {
+            try {
+                await directory.getFileHandle(fileName);
+                return true;
+            } catch (error) {
+                if (error.name === 'NotFoundError') return false;
+                throw error;
+            }
+        }
+
+        async function uniqueFileName(directory, requestedName) {
+            var dot = requestedName.lastIndexOf('.');
+            var base = dot > 0 ? requestedName.slice(0, dot) : requestedName;
+            var extension = dot > 0 ? requestedName.slice(dot) : '';
+            var candidate = requestedName;
+            var number = 1;
+
+            while (await fileExists(directory, candidate)) {
+                candidate = base + '-' + number + extension;
+                number += 1;
+            }
+            return candidate;
+        }
+
+        function openHandleDatabase() {
+            return new Promise(function (resolve, reject) {
+                var request = indexedDB.open('kmei-library-storage', 1);
+                request.onupgradeneeded = function () {
+                    if (!request.result.objectStoreNames.contains('handles')) {
+                        request.result.createObjectStore('handles');
+                    }
+                };
+                request.onsuccess = function () { resolve(request.result); };
+                request.onerror = function () { reject(request.error); };
+            });
+        }
+
+        async function loadSavedDirectory() {
+            var database = await openHandleDatabase();
+            return new Promise(function (resolve, reject) {
+                var transaction = database.transaction('handles', 'readonly');
+                var request = transaction.objectStore('handles').get('kmei-root');
+                request.onsuccess = function () { resolve(request.result || null); };
+                request.onerror = function () { reject(request.error); };
+                transaction.oncomplete = function () { database.close(); };
+            });
+        }
+
+        async function saveDirectoryHandle(handle) {
+            var database = await openHandleDatabase();
+            return new Promise(function (resolve, reject) {
+                var transaction = database.transaction('handles', 'readwrite');
+                transaction.objectStore('handles').put(handle, 'kmei-root');
+                transaction.oncomplete = function () {
+                    database.close();
+                    resolve();
+                };
+                transaction.onerror = function () { reject(transaction.error); };
+            });
+        }
+
+        async function getWritableRootDirectory() {
+            var handle = await loadSavedDirectory();
+
+            if (handle) {
+                var permission = await handle.queryPermission({ mode: 'readwrite' });
+                if (permission !== 'granted') {
+                    permission = await handle.requestPermission({ mode: 'readwrite' });
+                }
+                if (permission === 'granted') return handle;
+            }
+
+            handle = await window.showDirectoryPicker({
+                id: 'kmei-library-storage',
+                mode: 'readwrite',
+                startIn: 'documents'
+            });
+            await saveDirectoryHandle(handle);
+            return handle;
+        }
+
+        document.getElementById('library-write-form').addEventListener('submit', async function (event) {
+            event.preventDefault();
+            var saveButton = document.getElementById('library-save-button');
+            var selectedFiles = Array.from(document.getElementById('write-file').files);
+            saveButton.disabled = true;
+            saveButton.textContent = '저장 중...';
+
+            try {
+                if (!window.showDirectoryPicker) {
+                    throw new Error('이 저장 기능은 Chrome 또는 Edge 브라우저에서 사용할 수 있습니다.');
+                }
+
+                var rootDirectory = await getWritableRootDirectory();
+                var boardDirectory = await rootDirectory.getDirectoryHandle('board-library', { create: true });
+                var attachmentDirectory = await rootDirectory.getDirectoryHandle('library-file', { create: true });
+                var title = safeFileName(document.getElementById('write-title').value, '제목 없음');
+                var textFileName = title + '.txt';
+
+                if (textFileName !== editingFileName && await fileExists(boardDirectory, textFileName)) {
+                    throw new Error('같은 제목의 자료가 이미 존재합니다. 제목을 변경해 주세요.');
+                }
+
+                var savedFiles = existingFiles.slice();
+                var pendingFiles = [];
+                for (var i = 0; i < selectedFiles.length; i += 1) {
+                    var selectedFile = selectedFiles[i];
+                    var originalName = safeFileName(selectedFile.name, 'attachment.bin');
+                    var storedName = await uniqueFileName(attachmentDirectory, originalName);
+                    pendingFiles.push({ file: selectedFile, storedName: storedName });
+                    savedFiles.push({
+                        name: originalName,
+                        path: storedName,
+                        size: formatFileSize(selectedFile.size)
+                    });
+                }
+
+                var record = {
+                    id: originalRecordId || Date.now(),
+                    title: title,
+                    date: document.getElementById('write-date').value,
+                    content: [{
+                        heading: '자료 안내',
+                        text: document.getElementById('write-content').value.trim(),
+                        items: []
+                    }],
+                    files: savedFiles
+                };
+                try {
+                    localStorage.setItem('kmei-library-last-saved', JSON.stringify({
+                        fileName: textFileName,
+                        title: title,
+                        date: record.date,
+                        id: record.id
+                    }));
+                } catch (storageError) {
+                    console.warn('최근 자료 저장 기록을 건너뜁니다.', storageError);
+                }
+
+                await showLibraryCompletionPopup();
+                pendingFiles.forEach(function (pending) {
+                    writeToFile(attachmentDirectory, pending.storedName, pending.file).catch(console.warn);
+                });
+                await writeToFile(boardDirectory, textFileName, JSON.stringify(record) + '\n');
+                window.location.replace(
+                    'board-library-list.html?saved=' + encodeURIComponent(textFileName) + '&t=' + Date.now()
+                );
+            } catch (error) {
+                if (error.name !== 'AbortError') alert(error.message || '저장 중 오류가 발생했습니다.');
+            } finally {
+                saveButton.disabled = false;
+                saveButton.textContent = '저장';
+            }
+        });
+    </script>
+</body>
+</html>

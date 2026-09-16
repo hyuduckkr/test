@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>게시판 작성 > 매수기업현황 > 기술보증기금 기업승계 M&A</title>
+    <link href="/common/css/common.css" rel="stylesheet">
+	<link href="/common/css/swiper-bundle.min.css" rel="stylesheet">
+	<link href="/common/css/style.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/common/images/favicon.ico">
+</head>
+
+<body>
+    <div class="skip-nav">
+        <ul aria-label="주메뉴/본문 바로가기">
+            <li><a href="#gnb">주메뉴 바로가기</a></li>
+            <li><a href="#content">본문 바로가기</a></li>
+        </ul>
+    </div>
+    <div class="layout-wrap">
+        <div id="header"></div>
+        <div class="sub-top" style="background-image: url(/common/images/sub-visual-img01.png);">
+            <div class="sub-tit">
+                <div class="container">
+                    <div class="route">
+                        <div class="step"><img src="/common/images/home-icon.svg" alt="홈"></div>
+                        <div class="step">기업승계 M&A 거래망</div>
+                        <div class="step">M&A 매도 · 매수 기업 정보</div>
+                        <div class="step dropdown">
+                            <button class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                                3차메뉴 <i class="bi bi-chevron-down" aria-hidden="true"></i>
+                            </button>
+                            <div class="dropdown-menu">
+                                <a class="dropdown-item active" href="javascript:void(0);">3차 내부메뉴</a>
+                                <a class="dropdown-item" href="javascript:void(0);">3차 내부메뉴</a>
+                                <a class="dropdown-item" href="javascript:void(0);">3차 내부메뉴</a>
+                                <a class="dropdown-item" href="javascript:void(0);">3차 내부메뉴</a>
+                                <a class="dropdown-item" href="javascript:void(0);">3차 내부메뉴</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h2 class="tit">매수 기업 현황</h2>
+                </div>
+            </div>
+        </div>
+        <div class="sub-container">
+            <div class="container">
+                <!-- 컨텐츠 영역 -->
+                <div class="cont-wrap">
+                    <!-- content -->
+                    <div id="content">
+                        <!-- 이 곳에 내용 입력 -->
+                        <div class="cont-top">
+                            <h3 class="tit">게시판 작성</h3>
+                        </div>
+                        <div class="cont-inner">
+                            <div class="table-responsive">
+                                <table class="table board-info">
+                                    <caption>게시글의 제목, 작성자, 공지, 최상위 공지를 입력해주세요.</caption>
+                                    <colgroup>
+                                        <col style="width: 18%;">
+                                        <col>
+                                    </colgroup>
+                                    <tbody>
+                                        <tr>
+                                            <th scope="row">
+                                                <label class="req" for="info01">제목</label>
+                                            </th>
+                                            <td>
+                                                <input class="form-control" id="info01">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <label class="req" for="info02">제목</label>
+                                            </th>
+                                            <td>
+                                                <input class="form-control" id="info02">
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="label req" id="info03">공지</span>
+                                            </th>
+                                            <td>
+                                                <div role="group" aria-labelledby="info03">
+                                                    <div class="row align-items-center g-2">
+                                                        <div class="col-auto">
+                                                            <span class="form-check input-only">
+                                                                <input type="checkbox" id="write-checkbox01">
+                                                                <label for="write-checkbox01">사용여부</label>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="row gx-2 gy-3">
+                                                                <div class="col col-lg-auto">
+                                                                    <div class="input-group">
+                                                                        <label class="visually-hidden" for="day-start01">시작일자</label>
+                                                                        <input class="form-control" id="write-dateStart" placeholder="시작일자">
+                                                                        <button type="button" class="btn form-btn">
+                                                                            <img src="/common/images/calendar.png" alt="날짜 선택">
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col col-lg-auto">
+                                                                    <div class="input-group">
+                                                                        <label class="visually-hidden" for="day-end01">종료일자</label>
+                                                                        <input class="form-control" id="write-dateEnd" placeholder="종료일자">
+                                                                        <button type="button" class="btn form-btn">
+                                                                            <img src="/common/images/calendar.png" alt="날짜 선택">
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th scope="row">
+                                                <span class="label req" id="info04">최상위 공지</span>
+                                            </th>
+                                            <td>
+                                                <div role="group" aria-labelledby="info04">
+                                                    <div class="row align-items-center g-2">
+                                                        <div class="col-auto">
+                                                            <span class="form-check input-only">
+                                                                <input type="checkbox" id="write-checkbox02">
+                                                                <label for="write-checkbox02">사용여부</label>
+                                                            </span>
+                                                        </div>
+                                                        <div class="col">
+                                                            <div class="row gx-2 gy-3">
+                                                                <div class="col col-lg-auto">
+                                                                    <div class="input-group">
+                                                                        <label class="visually-hidden" for="day-start02">시작일자</label>
+                                                                        <input class="form-control" placeholder="시작일자" disabled>
+                                                                        <button type="button" class="btn form-btn" disabled>
+                                                                            <img src="/common/images/calendar.png" alt="날짜 선택">
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col col-lg-auto">
+                                                                    <div class="input-group">
+                                                                        <label class="visually-hidden" for="day-end02">종료일자</label>
+                                                                        <input class="form-control" placeholder="종료일자" disabled>
+                                                                        <button type="button" class="btn form-btn" disabled>
+                                                                            <img src="/common/images/calendar.png" alt="날짜 선택">
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            
+                            <div class="mb-3" style="display: flex; justify-content: center; align-items: center; height: 400px; background-color: #EFF4F9; font-size: 24px; font-weight: 600; color: #aaa;">Insert Editor</div>
+                    
+                            <div class="attach">
+                                <!-- <div class="no-data">
+                                    <img class="icon" src="/common/images/drag.png" alt="">
+                                    <p class="txt">선택된 파일이 없습니다.</p>
+                                </div> -->
+                                <ul class="attach-list">
+                                    <li class="active">
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-hwp.svg" alt="hwp 파일">
+                                            <span class="name">첨부파일01</span>
+                                            <span class="visually-hidden">선택됨</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-xlsx.svg" alt="xlsx 파일">
+                                            <span class="name">첨부파일02</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-pptx.svg" alt="pptx 파일">
+                                            <span class="name">첨부파일03</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-docx.svg" alt="docx 파일">
+                                            <span class="name">첨부파일04</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-pdf.svg" alt="pdf 파일">
+                                            <span class="name">첨부파일05</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-zip.svg" alt="zip 파일">
+                                            <span class="name">첨부파일06</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-img.svg" alt="img 파일">
+                                            <span class="name">첨부파일07</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-etc.svg" alt="etc 파일">
+                                            <span class="name">첨부파일08</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <button class="item" type="button">
+                                            <img src="/common/images/icon-etc.svg" alt="etc 파일">
+                                            <span class="name">첨부파일09</span>
+                                            <span class="size">(1.68 MB)</span>
+                                        </button>
+                                        <div class="btn-box">
+                                            <button class="btn btn-bi-download" type="button">
+                                                <span class="visually-hidden">다운로드</span>
+                                            </button>
+                                            <button class="btn btn-bi-preview" type="button">
+                                                <span class="visually-hidden">미리보기</span>
+                                            </button>
+                                            <button class="btn btn-bi-close" type="button">
+                                                <span class="visually-hidden">삭제</span>
+                                            </button>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <div class="attach-btn">
+                                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-window-plus"></i>본문삽입</button>
+                                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-cloud-download"></i>전체 다운로드</button>
+                                    <button type="button" class="btn btn-outline-primary"><i class="bi bi-cloud-arrow-up"></i>파일등록</button>
+                                </div>
+                            </div>
+                    
+                            <div class="text-end mt-4">
+                                <a href="javascript:void(0);" class="btn btn-outline-primary">취소</a>
+                                <a href="javascript:void(0);" class="btn btn-primary">저장</a>
+                            </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="footer"></div>
+
+    </div>
+
+    <script src="/common/js/jquery-3.7.1.min.js"></script>
+    <script src="/common/js/bootstrap.bundle.min.js"></script>
+    <script src="/common/js/swiper-bundle.min.js"></script>
+    <script src="/common/js/script.js"></script>
+    <script>
+        $.ajax({
+            method: 'GET',
+            url: 'header.html',
+            async: false,
+            dataType: 'html'
+        }).done(function (html) {
+            $('#header').append(html);
+        });
+        $.ajax({
+            method: 'GET',
+            url: 'footer.html',
+            async: false,
+            dataType: 'html'
+        }).done(function (html) {
+            $('#footer').append(html);
+        });
+    </script>
+
+</body>
+
+</html>
