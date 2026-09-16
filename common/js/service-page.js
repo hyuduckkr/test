@@ -1,0 +1,21 @@
+(function(){
+    var services={
+        feasibility:{number:'01',title:'타당성 검토 및 기본계획 수립',summary:'공공사업의 필요성과 실현 가능성을 객관적으로 분석하고 지역 여건에 맞는 실행계획을 수립합니다.',items:['터미널, 공원, 체육시설 타당성 조사 및 분석','지역별 특구지정 계획 수립','재래시장 활성화 방안','유통센터 건립 타당성 조사 및 분석','소도읍 육성 기본계획 수립','관광개발 기본계획 수립 용역','기타 신활력 사업 추진계획 수립']},
+        educationCost:{number:'02',title:'교육청 원가',summary:'교육 현장에 필요한 급식·시설·기자재 등의 적정 비용을 전문적으로 산정합니다.',items:['급식비용 산정','졸업앨범 원가산정','교실 증·개축비용 산정(공사원가)','조경공사 원가산정(공사원가)','비품 및 기자재비용 산정(제조원가)','교재개발 및 인쇄 원가계산']},
+        transport:{number:'03',title:'대중교통 관련연구',summary:'지역 교통환경과 이용수요를 분석해 효율적이고 지속 가능한 대중교통 정책을 지원합니다.',items:['버스 노선 조정방안 연구','버스 운송수입금 조사','농·어촌 버스 적자지원금 실태조사','교통이용수요 및 실태조사','택시총량제(택시공급 중기계획)','경영합리화 방안']},
+        education:{number:'04',title:'교육 프로그램',summary:'공공기관과 기업의 역량 및 윤리경영 강화를 위한 맞춤형 교육과정을 기획합니다.',items:['경남 인적자원 개발 전문교육','공무원 윤리강령 및 행동지침 작성','윤리교육 프로그램 시행','전시·컨벤션 아카데미 개설','최고경영자과정 개설']},
+        management:{number:'05',title:'기업·경영진단',summary:'조직·재무·성과를 종합적으로 진단하여 기업의 경쟁력과 경영 효율 향상을 지원합니다.',items:['통합파산법(정리절차) 관련업무','기업 M&A 용역(인수합병·분할)','농업경영 컨설팅 및 창업절차 대행업무','INO-BIZ기업 확인 대행업무','부품·소재기업 확인 대행업무','사전환경성검토 용역','조직 및 인사관리','재무관리(재무제표분석)','기업 경영성과 및 직무분석','부동산컨설팅 관련업무','지방세조정 자문 용역업무','기타 금융컨설팅']},
+        courtCost:{number:'06',title:'법원 전문감정 원가산정',summary:'분쟁과 손해배상 사건에 필요한 원가와 보상금액을 전문성과 객관성에 근거해 산정합니다.',items:['영업손실·피해·폐업 보상금 신청','환경피해 보상금 산정','건축물 및 기계 손해·피해 보상금 산정','제조·공사 손해·피해 보상금 산정','각종 손해배상금 산정']},
+        contract:{number:'07',title:'크레임·계약금액 조정(E/S)',summary:'물가 및 설계 변경에 따른 계약금액을 합리적으로 조정하고 건설분쟁 해결을 지원합니다.',items:['크레임관리 원가산정 및 건설분쟁 조정자문','물가상승(E/S) 및 물가하락(D/S)에 따른 계약금액 조정','설계변경에 따른 계약금액 조정업무']},
+        outsourcing:{number:'08',title:'민간위탁 관련연구',summary:'공공서비스 민간위탁의 적정 비용과 운영 효율성, 경제성을 체계적으로 분석합니다.',items:['하수종말처리장','분뇨·축산 폐수처리시설','생활폐기물 수거·운반·처리','가로수 청소용역비용 산정','공공건물 청소 및 경비용역비용 산정','상·하수도 총괄 원가 및 적정요금 산정','주차장 위탁운영비용 산정','체육·문화·복지·전문시설 위탁운영비용 산정','공공시설 사용료 및 임대료 산정','수도 검침 원가계산','음식물·재활용 수거 및 처리비용 산정','시설운영관리','분뇨수거 및 정화조 청소요금 산정','대행수수료 산정','민간위탁 타당성 조사 및 경제성 분석']},
+        cost:{number:'09',title:'원가계산',summary:'제조·공사·학술용역 등 다양한 사업 분야의 적정 원가를 관련 기준에 따라 산정합니다.',items:['제조부문 원가계산','공사부문 원가계산','학술용역 원가계산','이용료·수수료·피해보상','국방부·방위산업 물자 원가계산']},
+        survey:{number:'10',title:'여론조사',summary:'과학적인 조사 설계와 분석을 통해 정책 및 경영 의사결정에 필요한 자료를 제공합니다.',items:['마케팅 및 신상품 시장조사','소비자 선호·만족도 조사','지방자치단체별 주민 만족도 조사','전문분야별 여론조사','홍보 및 선거 관련 여론조사','기타 수요자 예측조사']}
+    };
+    var links=[['feasibility','service-feasibility.html'],['educationCost','service-education-cost.html'],['transport','service-transport.html'],['education','service-education.html'],['management','service-management.html'],['courtCost','service-court-cost.html'],['contract','service-contract.html'],['outsourcing','service-outsourcing.html'],['cost','service-cost.html'],['survey','service-survey.html']];
+    var key=document.body.getAttribute('data-service'),data=services[key]||services.feasibility;
+    document.title=data.title+' | 경남경영경제연구원';
+    document.getElementById('service-title').textContent=data.title;
+    document.getElementById('service-app').innerHTML='<ul class="service-tabs">'+links.map(function(link){return '<li><a href="'+link[1]+'" class="'+(link[0]===key?'active':'')+'">'+services[link[0]].title+'</a></li>';}).join('')+'</ul><div class="service-detail"><aside class="service-summary"><span class="service-number">'+data.number+'</span><h3>'+data.title+'</h3><p>'+data.summary+'</p></aside><section class="service-work"><p class="category">Service Scope</p><h3>주요 업무</h3><ul class="service-list">'+data.items.map(function(item){return '<li>'+item+'</li>';}).join('')+'</ul><div class="service-contact"><div><strong>서비스 상담이 필요하신가요?</strong><span>전문 연구진이 친절하게 안내해 드립니다.</span></div><a href="tel:055-282-9022">055-282-9022</a></div></section></div>';
+    $.ajax({method:'GET',url:'header.html',async:false,dataType:'html'}).done(function(html){$('#header').append(html);});
+    $.ajax({method:'GET',url:'footer.html',async:false,dataType:'html'}).done(function(html){$('#footer').append(html);new Swiper('.related-sites-swiper',{slidesPerView:5,slidesPerGroup:1,loop:true,speed:700,autoplay:{delay:2500,disableOnInteraction:false,pauseOnMouseEnter:true},observer:true,observeParents:true});});
+})();
