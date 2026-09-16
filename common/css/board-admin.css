@@ -1,0 +1,52 @@
+.board-toolbar {
+    display: grid;
+    grid-template-columns: 1fr minmax(320px, 430px) 1fr;
+    align-items: center;
+    gap: 22px;
+}
+
+.board-toolbar .law-search { grid-column: 2; width: 100%; }
+
+.protected-write-button {
+    display: none;
+    grid-column: 3;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    min-width: 88px;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 10px;
+    color: #fff;
+    background: #0870b6;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.protected-write-button:hover { color: #fff; background: #075d98; }
+
+.admin-login-dialog {
+    width: min(400px, calc(100% - 32px));
+    padding: 28px;
+    border: 0;
+    border-radius: 18px;
+    box-shadow: 0 24px 70px rgba(18, 38, 55, .28);
+}
+
+.admin-login-dialog::backdrop { background: rgba(16, 31, 43, .58); backdrop-filter: blur(3px); }
+.admin-login-dialog h3 { margin: 0 0 8px; color: #163d52; font-size: 22px; }
+.admin-login-dialog > form > p { margin: 0 0 22px; color: #667985; font-size: 14px; }
+.admin-login-field { display: grid; gap: 7px; margin-bottom: 14px; color: #334d5c; font-size: 14px; font-weight: 700; }
+.admin-login-field input { width: 100%; height: 46px; padding: 0 14px; border: 1px solid #ccd7dd; border-radius: 9px; }
+.admin-login-error { min-height: 20px; margin: 2px 0 12px !important; color: #d63638 !important; font-size: 13px !important; }
+.admin-login-actions { display: flex; justify-content: flex-end; gap: 8px; }
+.admin-login-actions button { min-width: 76px; height: 40px; border: 0; border-radius: 9px; font-weight: 700; }
+.admin-login-cancel { color: #52646f; background: #edf1f3; }
+.admin-login-submit { color: #fff; background: #0870b6; }
+
+@media (max-width: 767px) {
+    .board-toolbar { display: flex; align-items: stretch; }
+    .board-toolbar .law-search { width: 100%; }
+    .protected-write-button { align-self: flex-end; }
+}

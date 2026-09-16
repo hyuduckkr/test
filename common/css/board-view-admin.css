@@ -1,0 +1,4 @@
+.board-manage-actions{display:none;align-items:center;justify-content:space-between;margin-bottom:14px}
+.board-manage-actions .law-button{min-width:78px;min-height:38px;padding:0 14px;border-radius:9px;font-size:14px}
+.law-button.edit{border-color:#138a6b;color:#138a6b;background:#fff}
+.law-button.delete{border-color:#d84b4b;color:#fff;background:#d84b4b}

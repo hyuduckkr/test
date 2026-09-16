@@ -1,0 +1,11 @@
+.write-card { padding: 38px; border: 1px solid #e1e8eb; border-radius: 20px; background: #fff; box-shadow: 0 16px 42px rgba(31,55,70,.08); }
+.write-row { display: grid; grid-template-columns: 130px 1fr; gap: 20px; padding: 18px 0; border-bottom: 1px solid #edf1f3; }
+.write-label { padding-top: 12px; color: #274759; font-weight: 800; }
+.write-row input[type="text"], .write-row input[type="date"], .write-row textarea { width: 100%; padding: 12px 14px; border: 1px solid #cfd9de; border-radius: 9px; }
+.write-row textarea { min-height: 280px; resize: vertical; }
+.write-help { margin: 8px 0 0; color: #70818b; font-size: 13px; }
+.write-actions { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+.write-actions > p { width: 100%; text-align: center; }
+.write-button { display: inline-flex; align-items: center; justify-content: center; min-width: 94px; height: 44px; border: 0; border-radius: 9px; color: #435966; background: #edf1f3; font-weight: 800; text-decoration: none; }
+.write-button.primary { color: #fff; background: #0870b6; }
+@media (max-width: 767px) { .write-card { padding: 22px 18px; } .write-row { grid-template-columns: 1fr; gap: 7px; } .write-label { padding-top: 0; } }

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35.252" height="38.164" viewBox="0 0 35.252 38.164">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="사각형_350" data-name="사각형 350" width="35.252" height="38.164" transform="translate(0 0)" fill="none"/>
+    </clipPath>
+  </defs>
+  <g id="sns-blog" transform="translate(0 0)">
+    <rect id="사각형_349" data-name="사각형 349" width="2.332" height="38.164" transform="translate(32.92 0)" fill="#44a346"/>
+    <g id="그룹_1971" data-name="그룹 1971">
+      <g id="그룹_1970" data-name="그룹 1970" clip-path="url(#clip-path)">
+        <path id="패스_772" data-name="패스 772" d="M13.264,10.746a11.354,11.354,0,0,0-7.171,2.582V2.719H0V35.443H6.093V33.467a11.353,11.353,0,0,0,7.171,2.581c6.561,0,11.879-5.664,11.879-12.651S19.825,10.746,13.264,10.746M12.5,30.57A7.011,7.011,0,0,1,5.662,23.4,7.011,7.011,0,0,1,12.5,16.225,7.011,7.011,0,0,1,19.338,23.4,7.011,7.011,0,0,1,12.5,30.57" fill="#44a346"/>
+      </g>
+    </g>
+  </g>
+</svg>

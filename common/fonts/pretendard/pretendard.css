@@ -1,0 +1,37 @@
+﻿@charset "utf-8";
+
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 100;
+    font-style: normal;
+    src: url('../fonts/pretendard/pretendard-thin.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 400;
+    font-style: normal;
+    src: url('../fonts/pretendard/pretendard-regular.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 500;
+    font-style: normal;
+    src: url('../fonts/pretendard/pretendard-medium.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 600;
+    font-style: normal;
+    src: url('../fonts/pretendard/pretendard-semibold.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: 'pretendard';
+    font-weight: 700;
+    font-style: normal;
+    src: url('../fonts/pretendard/pretendard-bold.woff2') format('woff2');
+    font-display: swap;
+}
